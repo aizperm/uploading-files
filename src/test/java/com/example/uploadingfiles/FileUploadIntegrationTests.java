@@ -36,6 +36,7 @@ public class FileUploadIntegrationTests {
 
 	@Test
 	public void shouldUploadFile() throws Exception {
+		String username = "username";
 		ClassPathResource resource = new ClassPathResource("testupload.txt", getClass());
 
 		MultiValueMap<String, Object> map = new LinkedMultiValueMap<String, Object>();
@@ -46,7 +47,7 @@ public class FileUploadIntegrationTests {
 		assertThat(response.getStatusCode()).isEqualByComparingTo(HttpStatus.FOUND);
 		assertThat(response.getHeaders().getLocation().toString())
 				.startsWith("http://localhost:" + this.port + "/");
-		then(storageService).should().store(any(MultipartFile.class));
+		then(storageService).should().store(username, any(MultipartFile.class));
 	}
 
 	@Test

@@ -1,69 +1,95 @@
 package com.example.uploadingfiles;
 
 import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import org.hamcrest.Matchers;
+import com.example.uploadingfiles.cookies.CookieServiceImpl;
+import com.example.uploadingfiles.model.FileModel;
+import com.example.uploadingfiles.model.FilesModel;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.fileUpload;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.multipart;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import com.example.uploadingfiles.storage.StorageFileNotFoundException;
 import com.example.uploadingfiles.storage.StorageService;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
+
+import javax.servlet.http.Cookie;
 
 @AutoConfigureMockMvc
 @SpringBootTest
 public class FileUploadTests {
 
-	@Autowired
-	private MockMvc mvc;
+    @Autowired
+    private MockMvc mvc;
 
-	@MockBean
-	private StorageService storageService;
+    @MockBean
+    private StorageService storageService;
 
-	@Test
-	public void shouldListAllFiles() throws Exception {
-		given(this.storageService.loadAll())
-				.willReturn(Stream.of(Paths.get("first.txt"), Paths.get("second.txt")));
+    @Test
+    public void shouldListAllFiles() throws Exception {
+        String username = "username";
+        given(this.storageService.getAllFiles(username))
+                .willReturn(Stream.of(Paths.get("first.txt"), Paths.get("second.txt")));
 
-		this.mvc.perform(get("/")).andExpect(status().isOk())
-				.andExpect(model().attribute("files",
-						Matchers.contains("http://localhost/files/first.txt",
-								"http://localhost/files/second.txt")));
-	}
+        MockHttpServletRequestBuilder requestBuilder = get("/").cookie(new Cookie(CookieServiceImpl.USER_NAME, username));
 
-	@Test
-	public void shouldSaveUploadedFile() throws Exception {
-		MockMultipartFile multipartFile = new MockMultipartFile("file", "test.txt",
-				"text/plain", "Spring Framework".getBytes());
-		this.mvc.perform(multipart("/").file(multipartFile))
-				.andExpect(status().isFound())
-				.andExpect(header().string("Location", "/"));
+        MvcResult result = this.mvc.perform(requestBuilder).andExpect(status().isOk()).andReturn();
+        MockHttpServletResponse response = result.getResponse();
+        String content = response.getContentAsString();
+        assertNotNull(content);
+        ObjectMapper om = new ObjectMapper();
+        FilesModel files = om.readValue(content, FilesModel.class);
+        assertEquals(2, files.getFiles().size());
 
-		then(this.storageService).should().store(multipartFile);
-	}
+        List<String> all = files.getFiles().stream().map(f -> f.getFilename()).collect(Collectors.toList());
+        assertTrue(all.containsAll(Arrays.asList("first.txt", "second.txt")));
+    }
 
-	@SuppressWarnings("unchecked")
-	@Test
-	public void should404WhenMissingFile() throws Exception {
-		given(this.storageService.loadAsResource("test.txt"))
-				.willThrow(StorageFileNotFoundException.class);
+    @Test
+    public void shouldSaveUploadedFile() throws Exception {
+        MockMultipartFile multipartFile = new MockMultipartFile("file", "test.txt",
+                "text/plain", "Spring Framework".getBytes());
 
-		this.mvc.perform(get("/files/test.txt")).andExpect(status().isNotFound());
-	}
+        FileModel file = new FileModel().filename("test.txt");
+        ObjectMapper om = new ObjectMapper();
+        String json = om.writeValueAsString(file);
+
+        String username = "username";
+        this.mvc.perform(multipart("/").file(multipartFile).cookie(new Cookie(CookieServiceImpl.USER_NAME, username)))
+                .andExpect(status().isOk())
+                .andExpect(content().json(json))
+                .andReturn();
+
+        then(this.storageService).should().store(username, multipartFile);
+    }
+
+    @SuppressWarnings("unchecked")
+    @Test
+    public void should404WhenMissingFile() throws Exception {
+        given(this.storageService.loadAsResource("test.txt"))
+                .willThrow(StorageFileNotFoundException.class);
+
+        this.mvc.perform(get("/files/test.txt")).andExpect(status().isNotFound());
+    }
 
 }

@@ -14,7 +14,6 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileSystemUtils;
-import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 @Service
@@ -28,7 +27,7 @@ public class FileSystemStorageService implements StorageService {
 	}
 
 	@Override
-	public void store(MultipartFile file) {
+	public void store(String username, MultipartFile file) {
 		try {
 			if (file.isEmpty()) {
 				throw new StorageException("Failed to store empty file.");
@@ -52,7 +51,7 @@ public class FileSystemStorageService implements StorageService {
 	}
 
 	@Override
-	public Stream<Path> loadAll() {
+	public Stream<Path> getAllFiles(String username) {
 		try {
 			return Files.walk(this.rootLocation, 1)
 				.filter(path -> !path.equals(this.rootLocation))

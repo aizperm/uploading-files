@@ -3,8 +3,44 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="11ca8385-a00e-4b85-b152-03181d47bfac" name="Default Changelist" comment="" />
+    <list default="true" id="11ca8385-a00e-4b85-b152-03181d47bfac" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uploading-files.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/uploadingfiles/cookies/CookieService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/uploadingfiles/cookies/CookieServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/uploadingfiles/model/FileModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/uploadingfiles/model/FilesModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uploadingfiles/FileUploadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/uploadingfiles/FileUploadController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uploadingfiles/storage/FileSystemStorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/uploadingfiles/storage/FileSystemStorageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uploadingfiles/storage/StorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/uploadingfiles/storage/StorageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/uploadForm.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/uploadingfiles/FileUploadIntegrationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/uploadingfiles/FileUploadIntegrationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/uploadingfiles/FileUploadTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/uploadingfiles/FileUploadTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/uploadingfiles/storage/FileSystemStorageServiceTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/uploadingfiles/storage/FileSystemStorageServiceTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload-dir/debug.log" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,17 +64,6 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="uploading-files" type="f1a62948:ProjectNode" />
               </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="uploading-files" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="uploading-files" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="application" type="c8890929:TasksNode$1" />
-              </path>
             </expand>
             <select />
           </tree_state>
@@ -46,8 +71,16 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -64,9 +97,84 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
     <property name="show.unlinked.gradle.project.popup" value="true" />
+  </component>
+  <component name="RunManager" selected="Gradle.FileUploadTests.shouldSaveUploadedFile">
+    <configuration name="UploadingFilesApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.uploadingfiles.UploadingFilesApplication" />
+      <module name="uploading-files.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FileUploadTests.shouldListAllFiles" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.example.uploadingfiles.FileUploadTests.shouldListAllFiles&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="FileUploadTests.shouldSaveUploadedFile" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.example.uploadingfiles.FileUploadTests.shouldSaveUploadedFile&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="uploading-files [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="dependencies" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.FileUploadTests.shouldSaveUploadedFile" />
+        <item itemvalue="Gradle.FileUploadTests.shouldListAllFiles" />
+        <item itemvalue="Gradle.uploading-files [dependencies]" />
+        <item itemvalue="Application.UploadingFilesApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -79,31 +187,88 @@
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
   </component>
   <component name="WindowStateProjectService">
-    <state width="1397" height="222" key="GridCell.Tab.0.bottom" timestamp="1603820214763">
+    <state x="525" y="136" key="#com.intellij.ide.util.MemberChooser" timestamp="1603878355877">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="222" key="GridCell.Tab.0.bottom/0.0.1440.860@0.0.1440.860" timestamp="1603820214763" />
-    <state width="1397" height="222" key="GridCell.Tab.0.center" timestamp="1603820214763">
+    <state x="525" y="136" key="#com.intellij.ide.util.MemberChooser/0.0.1440.860@0.0.1440.860" timestamp="1603878355877" />
+    <state width="752" height="466" key="DebuggerActiveHint" timestamp="1603879707068">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="222" key="GridCell.Tab.0.center/0.0.1440.860@0.0.1440.860" timestamp="1603820214763" />
-    <state width="1397" height="222" key="GridCell.Tab.0.left" timestamp="1603820214763">
+    <state width="752" height="466" key="DebuggerActiveHint/0.0.1440.860@0.0.1440.860" timestamp="1603879707068" />
+    <state width="1397" height="222" key="GridCell.Tab.0.bottom" timestamp="1603882071097">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="222" key="GridCell.Tab.0.left/0.0.1440.860@0.0.1440.860" timestamp="1603820214763" />
-    <state width="1397" height="222" key="GridCell.Tab.0.right" timestamp="1603820214763">
+    <state width="1397" height="222" key="GridCell.Tab.0.bottom/0.0.1440.860@0.0.1440.860" timestamp="1603882071097" />
+    <state width="1557" height="276" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1603866698869" />
+    <state width="1397" height="222" key="GridCell.Tab.0.center" timestamp="1603882071096">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="222" key="GridCell.Tab.0.right/0.0.1440.860@0.0.1440.860" timestamp="1603820214763" />
-    <state x="221" y="74" key="SettingsEditor" timestamp="1603820282587">
+    <state width="1397" height="222" key="GridCell.Tab.0.center/0.0.1440.860@0.0.1440.860" timestamp="1603882071096" />
+    <state width="1557" height="276" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1603866698869" />
+    <state width="1397" height="222" key="GridCell.Tab.0.left" timestamp="1603882071096">
       <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1397" height="222" key="GridCell.Tab.0.left/0.0.1440.860@0.0.1440.860" timestamp="1603882071096" />
+    <state width="1557" height="276" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1603866698868" />
+    <state width="1397" height="222" key="GridCell.Tab.0.right" timestamp="1603882071097">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1397" height="222" key="GridCell.Tab.0.right/0.0.1440.860@0.0.1440.860" timestamp="1603882071097" />
+    <state width="1557" height="276" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1603866698869" />
+    <state width="1397" height="294" key="GridCell.Tab.1.bottom" timestamp="1603880721042">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1397" height="294" key="GridCell.Tab.1.bottom/0.0.1440.860@0.0.1440.860" timestamp="1603880721042" />
+    <state width="1557" height="276" key="GridCell.Tab.1.bottom/0.0.1600.860@0.0.1600.860" timestamp="1603866698870" />
+    <state width="1397" height="294" key="GridCell.Tab.1.center" timestamp="1603880721042">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1397" height="294" key="GridCell.Tab.1.center/0.0.1440.860@0.0.1440.860" timestamp="1603880721042" />
+    <state width="1557" height="276" key="GridCell.Tab.1.center/0.0.1600.860@0.0.1600.860" timestamp="1603866698869" />
+    <state width="1397" height="294" key="GridCell.Tab.1.left" timestamp="1603880721042">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1397" height="294" key="GridCell.Tab.1.left/0.0.1440.860@0.0.1440.860" timestamp="1603880721042" />
+    <state width="1557" height="276" key="GridCell.Tab.1.left/0.0.1600.860@0.0.1600.860" timestamp="1603866698869" />
+    <state width="1397" height="294" key="GridCell.Tab.1.right" timestamp="1603880721042">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1397" height="294" key="GridCell.Tab.1.right/0.0.1440.860@0.0.1440.860" timestamp="1603880721042" />
+    <state width="1557" height="276" key="GridCell.Tab.1.right/0.0.1600.860@0.0.1600.860" timestamp="1603866698869" />
+    <state x="246" y="74" key="SettingsEditor" timestamp="1603860321182">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="221" y="74" key="SettingsEditor/0.0.1440.860@0.0.1440.860" timestamp="1603820282587" />
+    <state x="246" y="74" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1603860321182" />
+    <state x="426" y="29" width="587" height="801" key="find.popup" timestamp="1603880393745">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="426" y="29" width="587" height="801" key="find.popup/0.0.1440.860@0.0.1440.860" timestamp="1603880393745" />
+    <state x="496" y="188" key="refactoring.ChangeSignatureDialog" timestamp="1603881322039">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="496" y="188" key="refactoring.ChangeSignatureDialog/0.0.1440.860@0.0.1440.860" timestamp="1603881322039" />
+    <state x="383" y="180" key="search.everywhere.popup" timestamp="1603878312349">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="383" y="180" key="search.everywhere.popup/0.0.1440.860@0.0.1440.860" timestamp="1603878312349" />
   </component>
 </project>

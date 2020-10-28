@@ -54,23 +54,26 @@ public class FileSystemStorageServiceTests {
 
 	@Test
 	public void saveAndLoad() {
-		service.store(new MockMultipartFile("foo", "foo.txt", MediaType.TEXT_PLAIN_VALUE,
+		String username = "username";
+		service.store(username, new MockMultipartFile("foo", "foo.txt", MediaType.TEXT_PLAIN_VALUE,
 				"Hello, World".getBytes()));
 		assertThat(service.load("foo.txt")).exists();
 	}
 
 	@Test
 	public void saveRelativePathNotPermitted() {
+		String username = "username";
 		assertThrows(StorageException.class, () -> {
-			service.store(new MockMultipartFile("foo", "../foo.txt",
+			service.store(username, new MockMultipartFile("foo", "../foo.txt",
 					MediaType.TEXT_PLAIN_VALUE, "Hello, World".getBytes()));
 		});
 	}
 
 	@Test
 	public void saveAbsolutePathNotPermitted() {
+		String username = "username";
 		assertThrows(StorageException.class, () -> {
-			service.store(new MockMultipartFile("foo", "/etc/passwd",
+			service.store(username, new MockMultipartFile("foo", "/etc/passwd",
 					MediaType.TEXT_PLAIN_VALUE, "Hello, World".getBytes()));
 		});
 	}
@@ -80,7 +83,8 @@ public class FileSystemStorageServiceTests {
 	public void saveAbsolutePathInFilenamePermitted() {
 		//Unix file systems (e.g. ext4) allows backslash '\' in file names.
 		String fileName="\\etc\\passwd";
-		service.store(new MockMultipartFile(fileName, fileName,
+		String username = "username";
+		service.store(username, new MockMultipartFile(fileName, fileName,
 				MediaType.TEXT_PLAIN_VALUE, "Hello, World".getBytes()));
 		assertTrue(Files.exists(
 				Paths.get(properties.getLocation()).resolve(Paths.get(fileName))));
@@ -88,7 +92,8 @@ public class FileSystemStorageServiceTests {
 
 	@Test
 	public void savePermitted() {
-		service.store(new MockMultipartFile("foo", "bar/../foo.txt",
+		String username = "username";
+		service.store(username, new MockMultipartFile("foo", "bar/../foo.txt",
 				MediaType.TEXT_PLAIN_VALUE, "Hello, World".getBytes()));
 	}
 
