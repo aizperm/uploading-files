@@ -51,7 +51,7 @@ public class FileUploadTests {
         given(this.storageService.getAllFiles(username))
                 .willReturn(Stream.of(Paths.get("first.txt"), Paths.get("second.txt")));
 
-        MockHttpServletRequestBuilder requestBuilder = get("/").cookie(new Cookie(CookieServiceImpl.USER_NAME, username));
+        MockHttpServletRequestBuilder requestBuilder = get("/files").cookie(new Cookie(CookieServiceImpl.USER_NAME, username));
 
         MvcResult result = this.mvc.perform(requestBuilder).andExpect(status().isOk()).andReturn();
         MockHttpServletResponse response = result.getResponse();
@@ -75,7 +75,7 @@ public class FileUploadTests {
         String json = om.writeValueAsString(file);
 
         String username = "username";
-        this.mvc.perform(multipart("/").file(multipartFile).cookie(new Cookie(CookieServiceImpl.USER_NAME, username)))
+        this.mvc.perform(multipart("/file").file(multipartFile).cookie(new Cookie(CookieServiceImpl.USER_NAME, username)))
                 .andExpect(status().isOk())
                 .andExpect(content().json(json))
                 .andReturn();
