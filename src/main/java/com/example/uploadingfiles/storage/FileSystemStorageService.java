@@ -57,7 +57,9 @@ public class FileSystemStorageService implements StorageService {
 	private Path getUserDirPath(String username) {
 		if (StringUtils.isEmpty(username))
 			throw new StorageException("Failed to store empty username.");
-		return this.rootLocation.resolve(Paths.get(username));
+		Path userdir = this.rootLocation.resolve(Paths.get(username));
+		userdir.toFile().mkdirs();
+		return userdir;
 	}
 
 	@Override

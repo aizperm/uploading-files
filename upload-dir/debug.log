@@ -1,3 +1,0 @@
-[1022/161151.201:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\aizperm\AppData\Local\Microsoft\Edge\User Data\Crashpad\attachments\910ef15c-0548-49ce-99cb-7736746fe6a4: Системе не удается найти указанный путь. (0x3)
-[1022/161151.205:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\aizperm\AppData\Local\Microsoft\Edge\User Data\Crashpad\attachments\ca71817a-ab4a-4754-b486-0add623a296c: Системе не удается найти указанный путь. (0x3)
-[1022/161151.206:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)

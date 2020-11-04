@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.uploadingfiles.storage.StorageFileNotFoundException;
@@ -38,6 +39,13 @@ public class FileUploadController {
     }
 
     @GetMapping("/")
+    public ModelAndView index(ModelAndView modelAndView, HttpServletRequest request, HttpServletResponse response){
+        cookieService.generateCookie(request, response);
+        modelAndView.setViewName("index.html");
+        return modelAndView;
+    }
+
+    @GetMapping("/files")
     public FilesModel listUploadedFiles(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String username = cookieService.generateCookie(request, response);
         List<FileModel> files = storageService.getAllFiles(username).map(
@@ -49,7 +57,7 @@ public class FileUploadController {
     }
 
 
-    @PostMapping("/")
+    @PostMapping("/file")
     public FileModel handleFileUpload(@CookieValue(name = CookieServiceImpl.USER_NAME, required = false) String username, @RequestParam("file") MultipartFile file) {
         if (StringUtils.isEmpty(username))
             return null;

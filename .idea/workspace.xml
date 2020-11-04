@@ -23,20 +23,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="11ca8385-a00e-4b85-b152-03181d47bfac" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uploadingfiles/FileUploadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/uploadingfiles/FileUploadController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uploadingfiles/storage/FileSystemStorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/uploadingfiles/storage/FileSystemStorageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uploadingfiles/storage/StorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/uploadingfiles/storage/StorageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/uploadingfiles/FileUploadIntegrationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/uploadingfiles/FileUploadIntegrationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/uploadingfiles/FileUploadTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/uploadingfiles/FileUploadTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/uploadingfiles/storage/FileSystemStorageServiceTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/uploadingfiles/storage/FileSystemStorageServiceTests.java" afterDir="false" />
-    </list>
-    <list id="9c56702c-98be-4a70-8889-1600212be634" name="getUserDirPath" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uploadingfiles/storage/FileSystemStorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/uploadingfiles/storage/FileSystemStorageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload-dir/debug.log" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -73,20 +73,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/com/example/uploadingfiles/storage/FileSystemStorageService.java">
-      <ranges>
-        <range start1="16" end1="16" start2="16" end2="17" changelist="11ca8385-a00e-4b85-b152-03181d47bfac" />
-        <range start1="34" end1="35" start2="35" end2="39" changelist="9c56702c-98be-4a70-8889-1600212be634" />
-        <range start1="37" end1="38" start2="41" end2="42" changelist="11ca8385-a00e-4b85-b152-03181d47bfac" />
-        <range start1="51" end1="51" start2="55" end2="61" changelist="11ca8385-a00e-4b85-b152-03181d47bfac" />
-        <range start1="55" end1="58" start2="65" end2="69" changelist="11ca8385-a00e-4b85-b152-03181d47bfac" />
-        <range start1="66" end1="68" start2="77" end2="80" changelist="11ca8385-a00e-4b85-b152-03181d47bfac" />
-        <range start1="71" end1="72" start2="83" end2="84" changelist="11ca8385-a00e-4b85-b152-03181d47bfac" />
-        <range start1="73" end1="74" start2="85" end2="86" changelist="11ca8385-a00e-4b85-b152-03181d47bfac" />
-      </ranges>
-    </file>
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -104,18 +91,29 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
     <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
-  <component name="RunManager" selected="Gradle.FileUploadIntegrationTests.shouldUploadFile">
-    <configuration name="FileSystemStorageServiceTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\ibm\uploading-files\src\main\resources\static" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.UploadingFilesApplication">
+    <configuration name="UploadingFilesApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.uploadingfiles.UploadingFilesApplication" />
+      <module name="uploading-files.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FileUploadTests.shouldListAllFiles" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.example.uploadingfiles.storage.FileSystemStorageServiceTests&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.example.uploadingfiles.FileUploadTests.shouldListAllFiles&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -129,12 +127,12 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="FileSystemStorageServiceTests.saveAbsolutePathInFilenamePermitted" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="FileUploadTests.shouldSaveUploadedFile" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.example.uploadingfiles.storage.FileSystemStorageServiceTests.saveAbsolutePathInFilenamePermitted&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.example.uploadingfiles.FileUploadTests.shouldSaveUploadedFile&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -148,70 +146,31 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="FileSystemStorageServiceTests.saveAndLoad" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="uploading-files [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.example.uploadingfiles.storage.FileSystemStorageServiceTests.saveAndLoad&quot;" />
+        <option name="scriptParameters" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value=":test" />
+            <option value="dependencies" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="FileUploadIntegrationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.example.uploadingfiles.FileUploadIntegrationTests&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="FileUploadIntegrationTests.shouldUploadFile" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.example.uploadingfiles.FileUploadIntegrationTests.shouldUploadFile&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.FileUploadIntegrationTests.shouldUploadFile" />
-        <item itemvalue="Gradle.FileUploadIntegrationTests" />
-        <item itemvalue="Gradle.FileSystemStorageServiceTests" />
-        <item itemvalue="Gradle.FileSystemStorageServiceTests.saveAbsolutePathInFilenamePermitted" />
-        <item itemvalue="Gradle.FileSystemStorageServiceTests.saveAndLoad" />
+        <item itemvalue="Gradle.FileUploadTests.shouldSaveUploadedFile" />
+        <item itemvalue="Gradle.FileUploadTests.shouldListAllFiles" />
+        <item itemvalue="Gradle.uploading-files [dependencies]" />
+        <item itemvalue="Application.UploadingFilesApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -219,7 +178,6 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="11ca8385-a00e-4b85-b152-03181d47bfac" name="Default Changelist" comment="" />
-      <changelist id="9c56702c-98be-4a70-8889-1600212be634" name="getUserDirPath" comment="" />
       <created>1603819293891</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -245,111 +203,81 @@
     </ignored-roots>
   </component>
   <component name="WindowStateProjectService">
-    <state x="172" y="127" width="1168" height="673" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1603887462667">
-      <screen x="72" y="27" width="1368" height="873" />
-    </state>
-    <state x="172" y="127" width="1168" height="673" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/72.27.1368.873@72.27.1368.873" timestamp="1603887462667" />
     <state x="525" y="136" key="#com.intellij.ide.util.MemberChooser" timestamp="1603878355877">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="525" y="136" key="#com.intellij.ide.util.MemberChooser/0.0.1440.860@0.0.1440.860" timestamp="1603878355877" />
-    <state x="514" y="208" key="#xdebugger.evaluate" timestamp="1603889005067">
-      <screen x="72" y="27" width="1368" height="873" />
-    </state>
-    <state x="514" y="208" key="#xdebugger.evaluate/72.27.1368.873@72.27.1368.873" timestamp="1603889005067" />
-    <state width="715" height="474" key="DebuggerActiveHint" timestamp="1603889704800">
-      <screen x="72" y="27" width="1368" height="873" />
+    <state width="836" height="466" key="DebuggerActiveHint" timestamp="1604035947007">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="752" height="466" key="DebuggerActiveHint/0.0.1440.860@0.0.1440.860" timestamp="1603879707068" />
-    <state width="715" height="474" key="DebuggerActiveHint/72.27.1368.873@72.27.1368.873" timestamp="1603889704799" />
-    <state width="1322" height="268" key="GridCell.Tab.0.bottom" timestamp="1603889870929">
-      <screen x="72" y="27" width="1368" height="873" />
+    <state width="836" height="466" key="DebuggerActiveHint/0.0.1600.860@0.0.1600.860" timestamp="1604035947007" />
+    <state width="1237" height="189" key="GridCell.Tab.0.bottom" timestamp="1604045816781">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
+    <state width="1237" height="252" key="GridCell.Tab.0.bottom/0.0.1280.760@0.0.1280.760" timestamp="1604032629462" />
     <state width="1397" height="222" key="GridCell.Tab.0.bottom/0.0.1440.860@0.0.1440.860" timestamp="1603882071097" />
-    <state width="1557" height="276" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1603866698869" />
-    <state width="1322" height="268" key="GridCell.Tab.0.bottom/72.27.1368.873@72.27.1368.873" timestamp="1603889870929" />
-    <state width="1322" height="268" key="GridCell.Tab.0.center" timestamp="1603889870928">
-      <screen x="72" y="27" width="1368" height="873" />
+    <state width="1237" height="189" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1604045816781" />
+    <state width="1237" height="189" key="GridCell.Tab.0.center" timestamp="1604045816781">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
+    <state width="1237" height="252" key="GridCell.Tab.0.center/0.0.1280.760@0.0.1280.760" timestamp="1604032629462" />
     <state width="1397" height="222" key="GridCell.Tab.0.center/0.0.1440.860@0.0.1440.860" timestamp="1603882071096" />
-    <state width="1557" height="276" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1603866698869" />
-    <state width="1322" height="268" key="GridCell.Tab.0.center/72.27.1368.873@72.27.1368.873" timestamp="1603889870928" />
-    <state width="1322" height="268" key="GridCell.Tab.0.left" timestamp="1603889870928">
-      <screen x="72" y="27" width="1368" height="873" />
+    <state width="1237" height="189" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1604045816781" />
+    <state width="1237" height="189" key="GridCell.Tab.0.left" timestamp="1604045816781">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
+    <state width="1237" height="252" key="GridCell.Tab.0.left/0.0.1280.760@0.0.1280.760" timestamp="1604032629462" />
     <state width="1397" height="222" key="GridCell.Tab.0.left/0.0.1440.860@0.0.1440.860" timestamp="1603882071096" />
-    <state width="1557" height="276" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1603866698868" />
-    <state width="1322" height="268" key="GridCell.Tab.0.left/72.27.1368.873@72.27.1368.873" timestamp="1603889870928" />
-    <state width="1322" height="268" key="GridCell.Tab.0.right" timestamp="1603889870929">
-      <screen x="72" y="27" width="1368" height="873" />
+    <state width="1237" height="189" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1604045816781" />
+    <state width="1237" height="189" key="GridCell.Tab.0.right" timestamp="1604045816781">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
+    <state width="1237" height="252" key="GridCell.Tab.0.right/0.0.1280.760@0.0.1280.760" timestamp="1604032629462" />
     <state width="1397" height="222" key="GridCell.Tab.0.right/0.0.1440.860@0.0.1440.860" timestamp="1603882071097" />
-    <state width="1557" height="276" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1603866698869" />
-    <state width="1322" height="268" key="GridCell.Tab.0.right/72.27.1368.873@72.27.1368.873" timestamp="1603889870929" />
-    <state width="1322" height="268" key="GridCell.Tab.1.bottom" timestamp="1603889870930">
-      <screen x="72" y="27" width="1368" height="873" />
+    <state width="1237" height="189" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1604045816781" />
+    <state width="1557" height="252" key="GridCell.Tab.1.bottom" timestamp="1604045816772">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
+    <state width="1237" height="252" key="GridCell.Tab.1.bottom/0.0.1280.760@0.0.1280.760" timestamp="1604032629213" />
     <state width="1397" height="294" key="GridCell.Tab.1.bottom/0.0.1440.860@0.0.1440.860" timestamp="1603880721042" />
-    <state width="1557" height="276" key="GridCell.Tab.1.bottom/0.0.1600.860@0.0.1600.860" timestamp="1603866698870" />
-    <state width="1322" height="268" key="GridCell.Tab.1.bottom/72.27.1368.873@72.27.1368.873" timestamp="1603889870930" />
-    <state width="1322" height="268" key="GridCell.Tab.1.center" timestamp="1603889870929">
-      <screen x="72" y="27" width="1368" height="873" />
+    <state width="1557" height="252" key="GridCell.Tab.1.bottom/0.0.1600.860@0.0.1600.860" timestamp="1604045816772" />
+    <state width="1557" height="252" key="GridCell.Tab.1.center" timestamp="1604045816772">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
+    <state width="1237" height="252" key="GridCell.Tab.1.center/0.0.1280.760@0.0.1280.760" timestamp="1604032629213" />
     <state width="1397" height="294" key="GridCell.Tab.1.center/0.0.1440.860@0.0.1440.860" timestamp="1603880721042" />
-    <state width="1557" height="276" key="GridCell.Tab.1.center/0.0.1600.860@0.0.1600.860" timestamp="1603866698869" />
-    <state width="1322" height="268" key="GridCell.Tab.1.center/72.27.1368.873@72.27.1368.873" timestamp="1603889870929" />
-    <state width="1322" height="268" key="GridCell.Tab.1.left" timestamp="1603889870929">
-      <screen x="72" y="27" width="1368" height="873" />
+    <state width="1557" height="252" key="GridCell.Tab.1.center/0.0.1600.860@0.0.1600.860" timestamp="1604045816772" />
+    <state width="1557" height="252" key="GridCell.Tab.1.left" timestamp="1604045816772">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
+    <state width="1237" height="252" key="GridCell.Tab.1.left/0.0.1280.760@0.0.1280.760" timestamp="1604032629213" />
     <state width="1397" height="294" key="GridCell.Tab.1.left/0.0.1440.860@0.0.1440.860" timestamp="1603880721042" />
-    <state width="1557" height="276" key="GridCell.Tab.1.left/0.0.1600.860@0.0.1600.860" timestamp="1603866698869" />
-    <state width="1322" height="268" key="GridCell.Tab.1.left/72.27.1368.873@72.27.1368.873" timestamp="1603889870929" />
-    <state width="1322" height="268" key="GridCell.Tab.1.right" timestamp="1603889870930">
-      <screen x="72" y="27" width="1368" height="873" />
+    <state width="1557" height="252" key="GridCell.Tab.1.left/0.0.1600.860@0.0.1600.860" timestamp="1604045816772" />
+    <state width="1557" height="252" key="GridCell.Tab.1.right" timestamp="1604045816772">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
+    <state width="1237" height="252" key="GridCell.Tab.1.right/0.0.1280.760@0.0.1280.760" timestamp="1604032629213" />
     <state width="1397" height="294" key="GridCell.Tab.1.right/0.0.1440.860@0.0.1440.860" timestamp="1603880721042" />
-    <state width="1557" height="276" key="GridCell.Tab.1.right/0.0.1600.860@0.0.1600.860" timestamp="1603866698869" />
-    <state width="1322" height="268" key="GridCell.Tab.1.right/72.27.1368.873@72.27.1368.873" timestamp="1603889870930" />
-    <state x="562" y="400" width="377" height="133" key="ReplaceDuplicatesPrompt" timestamp="1603887125308">
-      <screen x="72" y="27" width="1368" height="873" />
-    </state>
-    <state x="562" y="400" width="377" height="133" key="ReplaceDuplicatesPrompt/72.27.1368.873@72.27.1368.873" timestamp="1603887125308" />
-    <state x="246" y="74" key="SettingsEditor" timestamp="1603860321182">
+    <state width="1557" height="252" key="GridCell.Tab.1.right/0.0.1600.860@0.0.1600.860" timestamp="1604045816772" />
+    <state x="246" y="74" key="SettingsEditor" timestamp="1604036277149">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="221" y="74" key="SettingsEditor/0.0.1440.860@0.0.1440.860" timestamp="1603820282587" />
-    <state x="246" y="74" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1603860321182" />
-    <state x="485" y="194" width="639" height="524" key="StructurePopup" timestamp="1603889343882">
-      <screen x="72" y="27" width="1368" height="873" />
-    </state>
-    <state x="485" y="194" width="639" height="524" key="StructurePopup/72.27.1368.873@72.27.1368.873" timestamp="1603889343882" />
-    <state x="599" y="378" width="303" height="178" key="VCS.ChangelistChooser" timestamp="1603887075941">
-      <screen x="72" y="27" width="1368" height="873" />
-    </state>
-    <state x="599" y="378" width="303" height="178" key="VCS.ChangelistChooser/72.27.1368.873@72.27.1368.873" timestamp="1603887075941" />
-    <state x="489" y="213" width="568" height="508" key="extract.method.dialog" timestamp="1603887117750">
-      <screen x="72" y="27" width="1368" height="873" />
-    </state>
-    <state x="489" y="213" width="568" height="508" key="extract.method.dialog/72.27.1368.873@72.27.1368.873" timestamp="1603887117750" />
-    <state x="426" y="29" width="587" height="801" key="find.popup" timestamp="1603880393745">
-      <screen x="0" y="0" width="1440" height="860" />
+    <state x="246" y="74" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1604036277149" />
+    <state x="473" y="29" width="653" height="801" key="find.popup" timestamp="1604035712625">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="426" y="29" width="587" height="801" key="find.popup/0.0.1440.860@0.0.1440.860" timestamp="1603880393745" />
-    <state x="543" y="218" width="432" height="492" key="refactoring.ChangeSignatureDialog" timestamp="1603886468928">
-      <screen x="72" y="27" width="1368" height="873" />
-    </state>
-    <state x="496" y="188" key="refactoring.ChangeSignatureDialog/0.0.1440.860@0.0.1440.860" timestamp="1603881322039" />
-    <state x="543" y="218" width="432" height="492" key="refactoring.ChangeSignatureDialog/72.27.1368.873@72.27.1368.873" timestamp="1603886468928" />
-    <state x="383" y="180" key="search.everywhere.popup" timestamp="1603878312349">
+    <state x="473" y="29" width="653" height="801" key="find.popup/0.0.1600.860@0.0.1600.860" timestamp="1604035712625" />
+    <state x="496" y="188" key="refactoring.ChangeSignatureDialog" timestamp="1603881322039">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
+    <state x="496" y="188" key="refactoring.ChangeSignatureDialog/0.0.1440.860@0.0.1440.860" timestamp="1603881322039" />
+    <state x="426" y="180" key="search.everywhere.popup" timestamp="1604036214183">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
     <state x="383" y="180" key="search.everywhere.popup/0.0.1440.860@0.0.1440.860" timestamp="1603878312349" />
-  </component>
-  <component name="XDebuggerManager">
-    <watches-manager>
-      <configuration name="Remote">
-        <watch expression="cookie.split(&quot;;&quot;)" language="JAVA" />
-      </configuration>
-    </watches-manager>
+    <state x="426" y="180" key="search.everywhere.popup/0.0.1600.860@0.0.1600.860" timestamp="1604036214183" />
   </component>
 </project>
