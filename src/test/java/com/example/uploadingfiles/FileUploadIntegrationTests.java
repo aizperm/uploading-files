@@ -30,6 +30,7 @@ import static org.mockito.BDDMockito.then;
 import static org.mockito.Matchers.any;
 
 import com.example.uploadingfiles.storage.StorageService;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
 import java.util.List;
@@ -48,24 +49,24 @@ public class FileUploadIntegrationTests {
     @Test
     public void shouldUploadFile() throws Exception {
 
-        ResponseEntity<? extends FilesModel> responseGet = this.restTemplate.getForEntity("http://localhost:" + this.port + "/", FilesModel.class);
-
-        List<String> header = responseGet.getHeaders().get("Set-Cookie");
+        ResponseEntity<String> fResponse = this.restTemplate.getForEntity("http://localhost:" + this.port + "/", String.class);
+        List<String> header = fResponse.getHeaders().get("Set-Cookie");
         String cookie = header.get(0);
         String[] split = cookie.split(";")[0].split("=");
         String username = split[1];
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Cookie", cookie);
+
+        ResponseEntity<? extends FilesModel> responseGet = this.restTemplate.getForEntity("http://localhost:" + this.port + "/file", FilesModel.class);
 
         ClassPathResource resource = new ClassPathResource("testupload.txt", getClass());
 
         MultiValueMap<String, Object> map = new LinkedMultiValueMap<String, Object>();
         map.add("file", resource);
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Cookie", cookie);
-
         HttpEntity<MultiValueMap> request = new HttpEntity<>(map, headers);
 
-        ResponseEntity<FileModel> response = this.restTemplate.postForEntity("http://localhost:" + this.port + "/", request,
+        ResponseEntity<FileModel> response = this.restTemplate.postForEntity("http://localhost:" + this.port + "/file", request,
                 FileModel.class);
 
         assertThat(response.getStatusCode()).isEqualByComparingTo(HttpStatus.OK);
