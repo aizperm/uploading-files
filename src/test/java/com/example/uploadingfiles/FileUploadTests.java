@@ -51,7 +51,7 @@ public class FileUploadTests {
         given(this.storageService.getAllFiles(username))
                 .willReturn(Stream.of(Paths.get("first.txt"), Paths.get("second.txt")));
 
-        MockHttpServletRequestBuilder requestBuilder = get("/files").cookie(new Cookie(CookieServiceImpl.USER_NAME, username));
+        MockHttpServletRequestBuilder requestBuilder = get("/api/files").cookie(new Cookie(CookieServiceImpl.USER_NAME, username));
 
         MvcResult result = this.mvc.perform(requestBuilder).andExpect(status().isOk()).andReturn();
         MockHttpServletResponse response = result.getResponse();
@@ -75,7 +75,7 @@ public class FileUploadTests {
         String json = om.writeValueAsString(file);
 
         String username = "username";
-        this.mvc.perform(multipart("/file").file(multipartFile).cookie(new Cookie(CookieServiceImpl.USER_NAME, username)))
+        this.mvc.perform(multipart("/api/file").file(multipartFile).cookie(new Cookie(CookieServiceImpl.USER_NAME, username)))
                 .andExpect(status().isOk())
                 .andExpect(content().json(json))
                 .andReturn();
@@ -90,7 +90,7 @@ public class FileUploadTests {
         given(this.storageService.getFileAsResource(username, "test.txt"))
                 .willThrow(StorageFileNotFoundException.class);
 
-        this.mvc.perform(get("/files/test.txt")).andExpect(status().isNotFound());
+        this.mvc.perform(get("/api/files/test.txt")).andExpect(status().isNotFound());
     }
 
 }

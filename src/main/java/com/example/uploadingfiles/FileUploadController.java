@@ -38,14 +38,14 @@ public class FileUploadController {
         this.cookieService = cookieService;
     }
 
-    @GetMapping("/")
+    @GetMapping("/api")
     public ModelAndView index(ModelAndView modelAndView, HttpServletRequest request, HttpServletResponse response){
         cookieService.generateCookie(request, response);
         modelAndView.setViewName("index.html");
         return modelAndView;
     }
 
-    @GetMapping("/files")
+    @GetMapping("/api/files")
     public FilesModel listUploadedFiles(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String username = cookieService.generateCookie(request, response);
         List<FileModel> files = storageService.getAllFiles(username).map(
@@ -57,7 +57,7 @@ public class FileUploadController {
     }
 
 
-    @PostMapping("/file")
+    @PostMapping("/api/file")
     public FileModel handleFileUpload(@CookieValue(name = CookieServiceImpl.USER_NAME, required = false) String username, @RequestParam("file") MultipartFile file) {
         if (StringUtils.isEmpty(username))
             return null;

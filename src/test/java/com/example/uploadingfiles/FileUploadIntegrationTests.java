@@ -49,7 +49,7 @@ public class FileUploadIntegrationTests {
     @Test
     public void shouldUploadFile() throws Exception {
 
-        ResponseEntity<String> fResponse = this.restTemplate.getForEntity("http://localhost:" + this.port + "/", String.class);
+        ResponseEntity<String> fResponse = this.restTemplate.getForEntity("http://localhost:" + this.port + "/api", String.class);
         List<String> header = fResponse.getHeaders().get("Set-Cookie");
         String cookie = header.get(0);
         String[] split = cookie.split(";")[0].split("=");
@@ -57,7 +57,7 @@ public class FileUploadIntegrationTests {
         HttpHeaders headers = new HttpHeaders();
         headers.add("Cookie", cookie);
 
-        ResponseEntity<? extends FilesModel> responseGet = this.restTemplate.getForEntity("http://localhost:" + this.port + "/file", FilesModel.class);
+        ResponseEntity<? extends FilesModel> responseGet = this.restTemplate.getForEntity("http://localhost:" + this.port + "/api/file", FilesModel.class);
 
         ClassPathResource resource = new ClassPathResource("testupload.txt", getClass());
 
@@ -66,7 +66,7 @@ public class FileUploadIntegrationTests {
 
         HttpEntity<MultiValueMap> request = new HttpEntity<>(map, headers);
 
-        ResponseEntity<FileModel> response = this.restTemplate.postForEntity("http://localhost:" + this.port + "/file", request,
+        ResponseEntity<FileModel> response = this.restTemplate.postForEntity("http://localhost:" + this.port + "/api/file", request,
                 FileModel.class);
 
         assertThat(response.getStatusCode()).isEqualByComparingTo(HttpStatus.OK);
