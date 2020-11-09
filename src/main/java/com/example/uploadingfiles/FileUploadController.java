@@ -1,8 +1,11 @@
 package com.example.uploadingfiles;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -29,6 +32,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200", allowCredentials = "true")
 public class FileUploadController {
 
     private final StorageService storageService;
@@ -54,7 +58,12 @@ public class FileUploadController {
         List<FileModel> files = storageService.getAllFiles(username).map(
                 path -> {
                     String name = path.getFileName().toString();
-                    String url = ServletUriComponentsBuilder.fromCurrentContextPath().path("/files/").path(name).toUriString();
+                    String url = null;
+                    try {
+                        url = "/api/files/" + URLEncoder.encode(name, "UTF-8");
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
                     return new FileModel().filename(name).setUrl(url);
                 })
                 .collect(Collectors.toList());
@@ -63,10 +72,10 @@ public class FileUploadController {
         return filesModel;
     }
 
-    @GetMapping("/files/{id}")
+    @GetMapping("/api/files/{id}")
     public ResponseEntity<byte[]> getFile(@PathVariable String id, HttpServletRequest request, HttpServletResponse response) throws IOException {
         String username = cookieService.generateCookie(request, response);
-        Path file = storageService.getFile(username, id);
+        Path file = storageService.getFile(username, URLDecoder.decode(id, "UTF-8"));
         byte[] data = Files.readAllBytes(file);
         return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\""
