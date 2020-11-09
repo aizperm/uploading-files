@@ -1,6 +1,8 @@
 package com.example.uploadingfiles;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,6 +23,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.uploadingfiles.storage.StorageFileNotFoundException;
 import com.example.uploadingfiles.storage.StorageService;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -39,7 +42,7 @@ public class FileUploadController {
     }
 
     @GetMapping("/api")
-    public ModelAndView index(ModelAndView modelAndView, HttpServletRequest request, HttpServletResponse response){
+    public ModelAndView index(ModelAndView modelAndView, HttpServletRequest request, HttpServletResponse response) {
         cookieService.generateCookie(request, response);
         modelAndView.setViewName("index.html");
         return modelAndView;
@@ -49,13 +52,27 @@ public class FileUploadController {
     public FilesModel listUploadedFiles(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String username = cookieService.generateCookie(request, response);
         List<FileModel> files = storageService.getAllFiles(username).map(
-                path -> new FileModel().filename(path.getFileName().toString()))
+                path -> {
+                    String name = path.getFileName().toString();
+                    String url = ServletUriComponentsBuilder.fromCurrentContextPath().path("/files/").path(name).toUriString();
+                    return new FileModel().filename(name).setUrl(url);
+                })
                 .collect(Collectors.toList());
         FilesModel filesModel = new FilesModel();
         filesModel.setFiles(files);
         return filesModel;
     }
 
+    @GetMapping("/files/{id}")
+    public ResponseEntity<byte[]> getFile(@PathVariable String id, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String username = cookieService.generateCookie(request, response);
+        Path file = storageService.getFile(username, id);
+        byte[] data = Files.readAllBytes(file);
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\""
+                        + file.getFileName().toString() + "\"")
+                .body(data);
+    }
 
     @PostMapping("/api/file")
     public FileModel handleFileUpload(@CookieValue(name = CookieServiceImpl.USER_NAME, required = false) String username, @RequestParam("file") MultipartFile file) {

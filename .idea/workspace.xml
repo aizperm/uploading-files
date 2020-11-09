@@ -22,13 +22,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11ca8385-a00e-4b85-b152-03181d47bfac" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/main.js" afterDir="false" />
+    <list default="true" id="11ca8385-a00e-4b85-b152-03181d47bfac" name="Default Changelist" comment="/api">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uploadingfiles/FileUploadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/uploadingfiles/FileUploadController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uploadingfiles/storage/FileSystemStorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/uploadingfiles/storage/FileSystemStorageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-dir/debug.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uploadingfiles/model/FileModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/uploadingfiles/model/FileModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +52,17 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="uploading-files" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="uploading-files" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="uploading-files" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -92,7 +100,10 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
   <component name="RecentsManager">
@@ -108,12 +119,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FileUploadTests.shouldListAllFiles" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="FileUploadIntegrationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.example.uploadingfiles.FileUploadTests.shouldListAllFiles&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.example.uploadingfiles.FileUploadIntegrationTests&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="FileUploadTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.example.uploadingfiles.FileUploadTests&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -146,7 +176,7 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="uploading-files [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="uploading-files [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -157,7 +187,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="dependencies" />
+            <option value="build" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -167,10 +197,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.FileUploadTests.shouldSaveUploadedFile" />
-        <item itemvalue="Gradle.FileUploadTests.shouldListAllFiles" />
-        <item itemvalue="Gradle.uploading-files [dependencies]" />
         <item itemvalue="Application.UploadingFilesApplication" />
+        <item itemvalue="Gradle.uploading-files [build]" />
+        <item itemvalue="Gradle.FileUploadTests" />
+        <item itemvalue="Gradle.FileUploadIntegrationTests" />
+        <item itemvalue="Gradle.FileUploadTests.shouldSaveUploadedFile" />
       </list>
     </recent_temporary>
   </component>
@@ -183,6 +214,35 @@
       <option name="presentableId" value="Default" />
       <updated>1603819293891</updated>
     </task>
+    <task id="LOCAL-00001" summary="static">
+      <created>1604474031998</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1604474031998</updated>
+    </task>
+    <task id="LOCAL-00002" summary="ignore">
+      <created>1604474303670</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1604474303670</updated>
+    </task>
+    <task id="LOCAL-00003" summary="expose port">
+      <created>1604569287322</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1604569287322</updated>
+    </task>
+    <task id="LOCAL-00004" summary="/api">
+      <created>1604577436505</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1604577436505</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -201,70 +261,86 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
+    <MESSAGE value="static" />
+    <MESSAGE value="ignore" />
+    <MESSAGE value="expose port" />
+    <MESSAGE value="/api" />
+    <option name="LAST_COMMIT_MESSAGE" value="/api" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="525" y="136" key="#com.intellij.ide.util.MemberChooser" timestamp="1603878355877">
-      <screen x="0" y="0" width="1440" height="860" />
+    <state x="583" y="136" key="#com.intellij.ide.util.MemberChooser" timestamp="1604901987258">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="525" y="136" key="#com.intellij.ide.util.MemberChooser/0.0.1440.860@0.0.1440.860" timestamp="1603878355877" />
+    <state x="583" y="136" key="#com.intellij.ide.util.MemberChooser/0.0.1600.860@0.0.1600.860" timestamp="1604901987258" />
     <state width="836" height="466" key="DebuggerActiveHint" timestamp="1604035947007">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="752" height="466" key="DebuggerActiveHint/0.0.1440.860@0.0.1440.860" timestamp="1603879707068" />
     <state width="836" height="466" key="DebuggerActiveHint/0.0.1600.860@0.0.1600.860" timestamp="1604035947007" />
-    <state width="1237" height="189" key="GridCell.Tab.0.bottom" timestamp="1604045816781">
+    <state width="1557" height="251" key="GridCell.Tab.0.bottom" timestamp="1604903755475">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1237" height="252" key="GridCell.Tab.0.bottom/0.0.1280.760@0.0.1280.760" timestamp="1604032629462" />
+    <state width="1237" height="215" key="GridCell.Tab.0.bottom/0.0.1280.760@0.0.1280.760" timestamp="1604759663699" />
     <state width="1397" height="222" key="GridCell.Tab.0.bottom/0.0.1440.860@0.0.1440.860" timestamp="1603882071097" />
-    <state width="1237" height="189" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1604045816781" />
-    <state width="1237" height="189" key="GridCell.Tab.0.center" timestamp="1604045816781">
+    <state width="1557" height="251" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1604903755475" />
+    <state width="1557" height="251" key="GridCell.Tab.0.center" timestamp="1604903755474">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1237" height="252" key="GridCell.Tab.0.center/0.0.1280.760@0.0.1280.760" timestamp="1604032629462" />
+    <state width="1237" height="215" key="GridCell.Tab.0.center/0.0.1280.760@0.0.1280.760" timestamp="1604759663698" />
     <state width="1397" height="222" key="GridCell.Tab.0.center/0.0.1440.860@0.0.1440.860" timestamp="1603882071096" />
-    <state width="1237" height="189" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1604045816781" />
-    <state width="1237" height="189" key="GridCell.Tab.0.left" timestamp="1604045816781">
+    <state width="1557" height="251" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1604903755474" />
+    <state width="1557" height="251" key="GridCell.Tab.0.left" timestamp="1604903755474">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1237" height="252" key="GridCell.Tab.0.left/0.0.1280.760@0.0.1280.760" timestamp="1604032629462" />
+    <state width="1237" height="215" key="GridCell.Tab.0.left/0.0.1280.760@0.0.1280.760" timestamp="1604759663698" />
     <state width="1397" height="222" key="GridCell.Tab.0.left/0.0.1440.860@0.0.1440.860" timestamp="1603882071096" />
-    <state width="1237" height="189" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1604045816781" />
-    <state width="1237" height="189" key="GridCell.Tab.0.right" timestamp="1604045816781">
+    <state width="1557" height="251" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1604903755474" />
+    <state width="1557" height="251" key="GridCell.Tab.0.right" timestamp="1604903755475">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1237" height="252" key="GridCell.Tab.0.right/0.0.1280.760@0.0.1280.760" timestamp="1604032629462" />
+    <state width="1237" height="215" key="GridCell.Tab.0.right/0.0.1280.760@0.0.1280.760" timestamp="1604759663699" />
     <state width="1397" height="222" key="GridCell.Tab.0.right/0.0.1440.860@0.0.1440.860" timestamp="1603882071097" />
-    <state width="1237" height="189" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1604045816781" />
-    <state width="1557" height="252" key="GridCell.Tab.1.bottom" timestamp="1604045816772">
+    <state width="1557" height="251" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1604903755475" />
+    <state width="1557" height="251" key="GridCell.Tab.1.bottom" timestamp="1604903755476">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1237" height="252" key="GridCell.Tab.1.bottom/0.0.1280.760@0.0.1280.760" timestamp="1604032629213" />
+    <state width="1237" height="215" key="GridCell.Tab.1.bottom/0.0.1280.760@0.0.1280.760" timestamp="1604759663699" />
     <state width="1397" height="294" key="GridCell.Tab.1.bottom/0.0.1440.860@0.0.1440.860" timestamp="1603880721042" />
-    <state width="1557" height="252" key="GridCell.Tab.1.bottom/0.0.1600.860@0.0.1600.860" timestamp="1604045816772" />
-    <state width="1557" height="252" key="GridCell.Tab.1.center" timestamp="1604045816772">
+    <state width="1557" height="251" key="GridCell.Tab.1.bottom/0.0.1600.860@0.0.1600.860" timestamp="1604903755476" />
+    <state width="1557" height="251" key="GridCell.Tab.1.center" timestamp="1604903755476">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1237" height="252" key="GridCell.Tab.1.center/0.0.1280.760@0.0.1280.760" timestamp="1604032629213" />
+    <state width="1237" height="215" key="GridCell.Tab.1.center/0.0.1280.760@0.0.1280.760" timestamp="1604759663699" />
     <state width="1397" height="294" key="GridCell.Tab.1.center/0.0.1440.860@0.0.1440.860" timestamp="1603880721042" />
-    <state width="1557" height="252" key="GridCell.Tab.1.center/0.0.1600.860@0.0.1600.860" timestamp="1604045816772" />
-    <state width="1557" height="252" key="GridCell.Tab.1.left" timestamp="1604045816772">
+    <state width="1557" height="251" key="GridCell.Tab.1.center/0.0.1600.860@0.0.1600.860" timestamp="1604903755476" />
+    <state width="1557" height="251" key="GridCell.Tab.1.left" timestamp="1604903755475">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1237" height="252" key="GridCell.Tab.1.left/0.0.1280.760@0.0.1280.760" timestamp="1604032629213" />
+    <state width="1237" height="215" key="GridCell.Tab.1.left/0.0.1280.760@0.0.1280.760" timestamp="1604759663699" />
     <state width="1397" height="294" key="GridCell.Tab.1.left/0.0.1440.860@0.0.1440.860" timestamp="1603880721042" />
-    <state width="1557" height="252" key="GridCell.Tab.1.left/0.0.1600.860@0.0.1600.860" timestamp="1604045816772" />
-    <state width="1557" height="252" key="GridCell.Tab.1.right" timestamp="1604045816772">
+    <state width="1557" height="251" key="GridCell.Tab.1.left/0.0.1600.860@0.0.1600.860" timestamp="1604903755475" />
+    <state width="1557" height="251" key="GridCell.Tab.1.right" timestamp="1604903755476">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1237" height="252" key="GridCell.Tab.1.right/0.0.1280.760@0.0.1280.760" timestamp="1604032629213" />
+    <state width="1237" height="215" key="GridCell.Tab.1.right/0.0.1280.760@0.0.1280.760" timestamp="1604759663699" />
     <state width="1397" height="294" key="GridCell.Tab.1.right/0.0.1440.860@0.0.1440.860" timestamp="1603880721042" />
-    <state width="1557" height="252" key="GridCell.Tab.1.right/0.0.1600.860@0.0.1600.860" timestamp="1604045816772" />
-    <state x="246" y="74" key="SettingsEditor" timestamp="1604036277149">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state width="1557" height="251" key="GridCell.Tab.1.right/0.0.1600.860@0.0.1600.860" timestamp="1604903755476" />
+    <state x="197" y="0" key="SettingsEditor" timestamp="1604474246774">
+      <screen x="0" y="0" width="1280" height="760" />
     </state>
+    <state x="197" y="0" key="SettingsEditor/0.0.1280.760@0.0.1280.760" timestamp="1604474246774" />
     <state x="221" y="74" key="SettingsEditor/0.0.1440.860@0.0.1440.860" timestamp="1603820282587" />
     <state x="246" y="74" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1604036277149" />
+    <state x="291" y="128" key="Vcs.Push.Dialog.v2" timestamp="1604577444160">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="233" y="113" key="Vcs.Push.Dialog.v2/0.0.1280.760@0.0.1280.760" timestamp="1604474310735" />
+    <state x="291" y="128" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1604577444160" />
+    <state x="617" y="343" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604569195293">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="617" y="343" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1600.860@0.0.1600.860" timestamp="1604569195293" />
     <state x="473" y="29" width="653" height="801" key="find.popup" timestamp="1604035712625">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
