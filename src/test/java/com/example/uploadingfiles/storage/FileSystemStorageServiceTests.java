@@ -15,10 +15,12 @@
  */
 package com.example.uploadingfiles.storage;
 
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Random;
 
+import com.google.common.io.ByteStreams;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -63,7 +65,13 @@ public class FileSystemStorageServiceTests {
     public void saveAndLoad() {
         String username = "username";
         service.store(username, new MockMultipartFile("foo", "foo.txt", MediaType.TEXT_PLAIN_VALUE,
-                "Hello, World".getBytes()));
+                "Hello, World".getBytes()), in -> {
+            try {
+                return ByteStreams.toByteArray(in);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
         assertThat(service.getFile(username, "foo.txt")).exists();
     }
 
@@ -72,7 +80,13 @@ public class FileSystemStorageServiceTests {
         String username = "username";
         assertThrows(StorageException.class, () -> {
             service.store(username, new MockMultipartFile("foo", "../foo.txt",
-                    MediaType.TEXT_PLAIN_VALUE, "Hello, World".getBytes()));
+                    MediaType.TEXT_PLAIN_VALUE, "Hello, World".getBytes()), in -> {
+                try {
+                    return ByteStreams.toByteArray(in);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            });
         });
     }
 
@@ -81,7 +95,13 @@ public class FileSystemStorageServiceTests {
         String username = "username";
         assertThrows(StorageException.class, () -> {
             service.store(username, new MockMultipartFile("foo", "/etc/passwd",
-                    MediaType.TEXT_PLAIN_VALUE, "Hello, World".getBytes()));
+                    MediaType.TEXT_PLAIN_VALUE, "Hello, World".getBytes()), in -> {
+                try {
+                    return ByteStreams.toByteArray(in);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            });
         });
     }
 
@@ -92,7 +112,13 @@ public class FileSystemStorageServiceTests {
         String fileName = "\\etc\\passwd";
         String username = "username";
         service.store(username, new MockMultipartFile(fileName, fileName,
-                MediaType.TEXT_PLAIN_VALUE, "Hello, World".getBytes()));
+                MediaType.TEXT_PLAIN_VALUE, "Hello, World".getBytes()), in -> {
+            try {
+                return ByteStreams.toByteArray(in);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
         assertTrue(Files.exists(
                 Paths.get(properties.getLocation()).resolve(Paths.get(username)).resolve(Paths.get(fileName))));
     }
@@ -101,7 +127,13 @@ public class FileSystemStorageServiceTests {
     public void savePermitted() {
         String username = "username";
         service.store(username, new MockMultipartFile("foo", "bar/../foo.txt",
-                MediaType.TEXT_PLAIN_VALUE, "Hello, World".getBytes()));
+                MediaType.TEXT_PLAIN_VALUE, "Hello, World".getBytes()), in -> {
+            try {
+                return ByteStreams.toByteArray(in);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
     }
 
 }

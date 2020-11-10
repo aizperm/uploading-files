@@ -4,9 +4,10 @@ plugins {
 	id 'java'
 }
 
-group = 'com.example'
-version = '0.0.1-SNAPSHOT'
+group = 'com.gmail.aizperm'
+version = '0.0.1'
 sourceCompatibility = '1.8'
+compileJava.options.encoding = 'UTF-8'
 
 repositories {
 	mavenCentral()
@@ -15,6 +16,9 @@ repositories {
 dependencies {
 	implementation 'com.fasterxml.jackson.core:jackson-databind'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	// https://mvnrepository.com/artifact/com.google.guava/guava
+	compile group: 'com.google.guava', name: 'guava', version: '19.0'
+
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}

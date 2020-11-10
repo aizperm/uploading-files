@@ -2,6 +2,7 @@ package com.example.uploadingfiles;
 
 import com.example.uploadingfiles.model.FileModel;
 import com.example.uploadingfiles.model.FilesModel;
+import com.google.common.io.ByteStreams;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,9 @@ import com.example.uploadingfiles.storage.StorageService;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.List;
+import java.util.function.Function;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class FileUploadIntegrationTests {
@@ -48,6 +51,8 @@ public class FileUploadIntegrationTests {
 
     @Test
     public void shouldUploadFile() throws Exception {
+
+        given(this.storageService.store(any(String.class), any(MultipartFile.class), any(Function.class))).willReturn(Paths.get("filename"));
 
         ResponseEntity<String> fResponse = this.restTemplate.getForEntity("http://localhost:" + this.port + "/api", String.class);
         List<String> header = fResponse.getHeaders().get("Set-Cookie");
@@ -72,8 +77,8 @@ public class FileUploadIntegrationTests {
         assertThat(response.getStatusCode()).isEqualByComparingTo(HttpStatus.OK);
 
         assertThat(response.getBody()).isNotNull();
+        then(storageService).should().store(any(String.class), any(MultipartFile.class), any(Function.class));
 
-        then(storageService).should().store(any(String.class), any(MultipartFile.class));
     }
 
 

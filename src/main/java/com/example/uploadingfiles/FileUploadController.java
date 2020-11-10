@@ -1,5 +1,6 @@
 package com.example.uploadingfiles;
 
+import java.awt.*;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.*;
@@ -13,36 +14,38 @@ import com.example.uploadingfiles.cookies.CookieService;
 import com.example.uploadingfiles.cookies.CookieServiceImpl;
 import com.example.uploadingfiles.model.FileModel;
 import com.example.uploadingfiles.model.FilesModel;
+import com.example.uploadingfiles.sign.Config;
+import com.example.uploadingfiles.sign.ISignUtil;
+import com.google.common.io.ByteStreams;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import com.example.uploadingfiles.storage.StorageFileNotFoundException;
 import com.example.uploadingfiles.storage.StorageService;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200", allowCredentials = "true")
+@CrossOrigin(allowCredentials = "true")
 public class FileUploadController {
 
     private final StorageService storageService;
     private final CookieService cookieService;
+    private final ISignUtil signUtil;
 
     @Autowired
     public FileUploadController(StorageService storageService,
-                                CookieService cookieService) {
+                                CookieService cookieService,
+                                ISignUtil signUtil) {
         this.storageService = storageService;
         this.cookieService = cookieService;
+        this.signUtil = signUtil;
     }
 
     @GetMapping("/api")
@@ -58,18 +61,23 @@ public class FileUploadController {
         List<FileModel> files = storageService.getAllFiles(username).map(
                 path -> {
                     String name = path.getFileName().toString();
-                    String url = null;
-                    try {
-                        url = "/api/files/" + URLEncoder.encode(name, "UTF-8");
-                    } catch (UnsupportedEncodingException e) {
-                        e.printStackTrace();
-                    }
+                    String url = getURL(name);
                     return new FileModel().filename(name).setUrl(url);
                 })
                 .collect(Collectors.toList());
         FilesModel filesModel = new FilesModel();
         filesModel.setFiles(files);
         return filesModel;
+    }
+
+    private String getURL(String name) {
+        String url = null;
+        try {
+            url = "/api/files/" + URLEncoder.encode(name, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return url;
     }
 
     @GetMapping("/api/files/{id}")
@@ -83,12 +91,32 @@ public class FileUploadController {
                 .body(data);
     }
 
+    @DeleteMapping("/api/files/{id}")
+    public ResponseEntity<Object> deleteFile(@PathVariable String id, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String username = cookieService.generateCookie(request, response);
+        storageService.deleteFile(username, URLDecoder.decode(id, "UTF-8"));
+        return ResponseEntity.ok().build();
+    }
+
     @PostMapping("/api/file")
     public FileModel handleFileUpload(@CookieValue(name = CookieServiceImpl.USER_NAME, required = false) String username, @RequestParam("file") MultipartFile file) {
         if (StringUtils.isEmpty(username))
             return null;
-        storageService.store(username, file);
-        return new FileModel().filename(file.getOriginalFilename());
+        Path storedFile = storageService.store(username, file, in -> {
+            try {
+                Config config = new Config();
+                return signUtil.drawText(in, config, "Лесная сказка");
+            } catch (IOException | FontFormatException e) {
+                try {
+                    return ByteStreams.toByteArray(in);
+                } catch (IOException ioException) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+        String name = storedFile.getFileName().toString();
+        String url = getURL(name);
+        return new FileModel().filename(file.getOriginalFilename()).setUrl(url);
     }
 
     @ExceptionHandler(StorageFileNotFoundException.class)

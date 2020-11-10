@@ -1,8 +1,10 @@
 package com.example.uploadingfiles;
 
+import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -10,6 +12,7 @@ import com.example.uploadingfiles.cookies.CookieServiceImpl;
 import com.example.uploadingfiles.model.FileModel;
 import com.example.uploadingfiles.model.FilesModel;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.io.ByteStreams;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +24,7 @@ import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.fileUpload;
@@ -32,6 +36,7 @@ import com.example.uploadingfiles.storage.StorageFileNotFoundException;
 import com.example.uploadingfiles.storage.StorageService;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.Cookie;
 
@@ -67,10 +72,12 @@ public class FileUploadTests {
 
     @Test
     public void shouldSaveUploadedFile() throws Exception {
+        given(this.storageService.store(any(String.class), any(MultipartFile.class), any(Function.class))).willReturn(Paths.get("filename"));
+
         MockMultipartFile multipartFile = new MockMultipartFile("file", "test.txt",
                 "text/plain", "Spring Framework".getBytes());
 
-        FileModel file = new FileModel().filename("test.txt");
+        FileModel file = new FileModel().filename("test.txt").setUrl("/api/files/filename");
         ObjectMapper om = new ObjectMapper();
         String json = om.writeValueAsString(file);
 
@@ -79,15 +86,13 @@ public class FileUploadTests {
                 .andExpect(status().isOk())
                 .andExpect(content().json(json))
                 .andReturn();
-
-        then(this.storageService).should().store(username, multipartFile);
     }
 
     @SuppressWarnings("unchecked")
     @Test
     public void should404WhenMissingFile() throws Exception {
-        String username = "username";
-        given(this.storageService.getFileAsResource(username, "test.txt"))
+
+        given(this.storageService.getFile(any(String.class), any(String.class)))
                 .willThrow(StorageFileNotFoundException.class);
 
         this.mvc.perform(get("/api/files/test.txt")).andExpect(status().isNotFound());
