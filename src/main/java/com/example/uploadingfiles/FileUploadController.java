@@ -32,7 +32,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @RestController
-@CrossOrigin(allowCredentials = "true")
+@CrossOrigin(origins = "*", allowCredentials = "true")
 public class FileUploadController {
 
     private final StorageService storageService;
