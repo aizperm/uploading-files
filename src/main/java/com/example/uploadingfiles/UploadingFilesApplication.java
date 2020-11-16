@@ -4,24 +4,40 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.boot.web.servlet.MultipartConfigFactory;
 import org.springframework.context.annotation.Bean;
 
 import com.example.uploadingfiles.storage.StorageProperties;
 import com.example.uploadingfiles.storage.StorageService;
+import org.springframework.util.unit.DataSize;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+import org.springframework.web.multipart.support.MultipartFilter;
+
+import javax.servlet.MultipartConfigElement;
 
 @SpringBootApplication
 @EnableConfigurationProperties(StorageProperties.class)
 public class UploadingFilesApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(UploadingFilesApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(UploadingFilesApplication.class, args);
+    }
+
+    @Bean
+    CommandLineRunner init(StorageService storageService) {
+        return (args) -> {
+            storageService.deleteAll();
+            storageService.init();
+        };
+    }
 
 	@Bean
-	CommandLineRunner init(StorageService storageService) {
-		return (args) -> {
-			storageService.deleteAll();
-			storageService.init();
-		};
+	public MultipartConfigElement multipartConfigElement() {
+		MultipartConfigFactory factory = new MultipartConfigFactory();
+		factory.setMaxFileSize(DataSize.ofMegabytes(50));
+		factory.setMaxRequestSize(DataSize.ofMegabytes(200));
+		factory.setFileSizeThreshold(DataSize.ofMegabytes(2000));
+		return factory.createMultipartConfig();
 	}
 }
